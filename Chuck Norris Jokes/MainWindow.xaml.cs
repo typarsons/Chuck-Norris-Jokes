@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +25,28 @@ namespace Chuck_Norris_Jokes
         public MainWindow()
         {
             InitializeComponent();
+            //
+            //
+            //CHUCK chuck;
+            //string catSelectedURL = "https://api.chucknorris.io/jokes/random?category={category}";
+            string catURL = "https://api.chucknorris.io/jokes/categories";
+            { using (var client = new HttpClient())
+                {
+                    string json = client.GetStringAsync(catURL).Result;
+                    List<string> categories = JsonConvert.DeserializeObject<List<string>>(json);
+
+                    foreach (string category in categories)
+                    {
+                        cboCat.Items.Add(category);
+                    }
+                          
+
+
+                }
+
+
+            }
+
         }
     }
 }
