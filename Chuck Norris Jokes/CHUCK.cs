@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Chuck_Norris_Jokes
 {
-    class CHUCK
+   public class CHUCK
     {
         public string value { get; set; }
     }

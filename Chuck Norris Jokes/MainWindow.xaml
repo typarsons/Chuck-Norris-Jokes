@@ -10,9 +10,11 @@
         <ImageBrush ImageSource="/mountain!.jpg"/>
     </Window.Background>
     <Grid>
-        <Label x:Name="lblJoke" Content="Label" HorizontalAlignment="Left" Margin="343,230,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.543,8.432" Height="102" Width="388"/>
-        <ComboBox x:Name="cboCat" HorizontalAlignment="Left" Height="209" Margin="34,191,0,0" VerticalAlignment="Top" Width="207"/>
-        <Label x:Name="lblCat" Content="Label" HorizontalAlignment="Left" Height="31" Margin="343,76,0,0" VerticalAlignment="Top" Width="228"/>
+        <Label x:Name="lblJoke" Content="Label" HorizontalAlignment="Left" Margin="23,356,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.543,8.432" Height="51" Width="675" Background="#FFBCFFF6"/>
+        <ComboBox x:Name="cboCat" HorizontalAlignment="Left" Height="30" Margin="23,143,0,0" VerticalAlignment="Top" Width="207"/>
+
+        <Label x:Name="lblCat" Content="Label" HorizontalAlignment="Left" Height="31" Margin="23,301,0,0" VerticalAlignment="Top" Width="228"/>
+        <Button x:Name="btnJoke" Content="Get Joke!" HorizontalAlignment="Left" Height="35" Margin="287,138,0,0" VerticalAlignment="Top" Width="62" Click="Button_Click"/>
 
     </Grid>
 </Window>

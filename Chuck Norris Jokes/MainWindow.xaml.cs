@@ -28,18 +28,23 @@ namespace Chuck_Norris_Jokes
             //
             //
             //CHUCK chuck;
-            //string catSelectedURL = "https://api.chucknorris.io/jokes/random?category={category}";
+            //string catURL = "https://api.chucknorris.io/jokes/random?category={category}";
             string catURL = "https://api.chucknorris.io/jokes/categories";
-            { using (var client = new HttpClient())
+            {
+                using (var client = new HttpClient())
                 {
                     string json = client.GetStringAsync(catURL).Result;
                     List<string> categories = JsonConvert.DeserializeObject<List<string>>(json);
 
                     foreach (string category in categories)
                     {
+                        //cboCat.Items.Add("All");
+                        //cboCat.SelectedIndex = 0;
                         cboCat.Items.Add(category);
+                        //combo box working, now add button
+                        //cbo.selindex = url"cat" ?
                     }
-                          
+                    
 
 
                 }
@@ -48,5 +53,32 @@ namespace Chuck_Norris_Jokes
             }
 
         }
+
+        public void Button_Click(object sender, RoutedEventArgs e)
+        {
+            lblCat.Content = cboCat.SelectedItem;
+            //CHUCK api;
+            var selectedCat = cboCat.SelectedIndex;
+            string catSelectedURL = "https://api.chucknorris.io/jokes/random";
+            //string catSelectedURL = "https://api.chucknorris.io/jokes/random?category={animal}";
+            //string catSelectedURL = "https://api.chucknorris.io/jokes/random?category={" + selectedCat + "}"; 
+            //string catSelectedURL = "https://api.chucknorris.io/jokes/random?category={category}";
+            {
+                using (var client = new HttpClient())
+                {
+                    string json = client.GetStringAsync(catSelectedURL).Result;
+                    CHUCK api = JsonConvert.DeserializeObject<CHUCK>(json);
+                    //foreach( var obj in api.value)
+                    //{
+                    //    lblJoke.Content = obj;
+                    //}
+                    lblJoke.Content = api.value;
+
+                }
+               
+
+            }
+        }
+
     }
 }
